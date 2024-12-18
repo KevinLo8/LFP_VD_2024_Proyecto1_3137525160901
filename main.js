@@ -2,6 +2,7 @@ const readline = require('readline');
 const AnalizadorLexico = require('./AnalizadorLexico/AnalizadorLexico');
 const CargadorDeArchivos = require('./CargadorDeArchivos/cargadorDeArchivos');
 const GeneradorDeHTML = require('./GeneradorDeHTML/GeneradorDeHTML');
+const GeneradorDeJson = require('./GeneradorDeJson/GeneradorDeJson');
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -12,8 +13,7 @@ function menu() {
     console.log('---------- Menu ----------');
     console.log('1. Cargar Archivo');
     console.log('2. Analizar Archivo');
-    console.log('3. Generar Archivo de Errores');
-    console.log('4. Reportes');
+    console.log('3. Reportes');
     console.log('0. Salir');
     console.log('');
     rl.question('Seleccione una opción:  ', (answer) => {
@@ -38,10 +38,6 @@ function menu() {
                 break;
             case 3:
                 console.clear();
-                menu();
-                break;
-            case 4:
-                console.clear();
                 menuReportes();
                 break;
             case 0:
@@ -60,8 +56,8 @@ function menu() {
 
 function menuReportes() {
     console.log('---------- Reportes ----------');
-    console.log('1. Generar la tabla de tokens');
-    console.log('2. Generar la tabla de errores');
+    console.log('1. Generar Reporte de tokens');
+    console.log('2. Generar Reportes de errores');
     console.log('0. Regresar');
     console.log('');
     rl.question('Seleccione una opción:  ', (answer) => {
@@ -69,12 +65,13 @@ function menuReportes() {
         switch (opcion) {
             case 1:
                 console.clear();
-                GenHTML.generarReporteTokens(anLex.getTokens());
+                genHTML.generarReporteTokens(anLex.getTokens());
                 menuReportes();
                 break;
             case 2:
                 console.clear();
-                GenHTML.generarReporteErrores(anLex.getErrores());
+                genHTML.generarReporteErrores(anLex.getErrores());
+                genJson.generarReporteErrores(anLex.getErrores());
                 menuReportes();
                 break;
             case 0:
@@ -93,7 +90,8 @@ function menuReportes() {
 
 let anLex = new AnalizadorLexico();
 let carArc = new CargadorDeArchivos();
-let GenHTML = new GeneradorDeHTML();
+let genHTML = new GeneradorDeHTML();
+let genJson = new GeneradorDeJson();
 
 console.clear();
 menu();

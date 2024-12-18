@@ -1,5 +1,4 @@
 const fs = require('fs');
-const Token = require("../Token/token");
 
 class GeneradorDeHTML {
 
@@ -71,7 +70,7 @@ class GeneradorDeHTML {
         texto = texto.concat('            <tr>\n');
         texto = texto.concat('                <th>#</th>\n');
         texto = texto.concat('                <th>Lexema</th>\n');
-        texto = texto.concat('                <th>Descripción</th>\n');
+        texto = texto.concat('                <th>Tipo</th>\n');
         texto = texto.concat('                <th>Fila</th>\n');
         texto = texto.concat('                <th>Columna</th>\n');
         texto = texto.concat('            </tr>\n');
