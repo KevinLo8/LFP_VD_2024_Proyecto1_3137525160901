@@ -1,6 +1,7 @@
 const readline = require('readline');
 const AnalizadorLexico = require('./AnalizadorLexico/AnalizadorLexico');
 const CargadorDeArchivos = require('./CargadorDeArchivos/cargadorDeArchivos');
+const GeneradorDeHTML = require('./GeneradorDeHTML/GeneradorDeHTML');
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -41,7 +42,7 @@ function menu() {
                 break;
             case 4:
                 console.clear();
-                menu();
+                menuReportes();
                 break;
             case 0:
                 console.log('Saliendo...');
@@ -57,8 +58,42 @@ function menu() {
     })
 }
 
+function menuReportes() {
+    console.log('---------- Reportes ----------');
+    console.log('1. Generar la tabla de tokens');
+    console.log('2. Generar la tabla de errores');
+    console.log('0. Regresar');
+    console.log('');
+    rl.question('Seleccione una opción:  ', (answer) => {
+        opcion = parseInt(answer);
+        switch (opcion) {
+            case 1:
+                console.clear();
+                GenHTML.generarReporteTokens(anLex.getTokens());
+                menuReportes();
+                break;
+            case 2:
+                console.clear();
+                GenHTML.generarReporteErrores(anLex.getErrores());
+                menuReportes();
+                break;
+            case 0:
+                console.clear();
+                menu();
+                break;        
+            default:
+                console.clear();
+                console.log('Opcion no válida.');
+                console.log('');
+                menuReportes();
+                break;
+        }
+    })
+}
+
 let anLex = new AnalizadorLexico();
 let carArc = new CargadorDeArchivos();
+let GenHTML = new GeneradorDeHTML();
 
 console.clear();
 menu();
