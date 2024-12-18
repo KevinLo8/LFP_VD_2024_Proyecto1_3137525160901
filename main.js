@@ -1,31 +1,11 @@
 const readline = require('readline');
 const AnalizadorLexico = require('./AnalizadorLexico/AnalizadorLexico');
+const CargadorDeArchivos = require('./CargadorDeArchivos/cargadorDeArchivos');
 
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
-
-let texto = `{
-    "operaciones": [
-        {
-            "operacion": "suma",
-            "valor1": 4.5,
-            "valor2": 5.32
-        },
-        {
-            "operacion": "resta",
-            "valor1": 4.5,
-            "valor2": [
-                {
-                    "operacion": "potencia",
-                    "valor1": 10,
-                    "valor2": 3
-                },#
-            ]
-        },
-    ]
-}`;
 
 function menu() {
     console.log('---------- Menu ----------');
@@ -40,12 +20,19 @@ function menu() {
         switch (opcion) {
             case 1:
                 console.clear();
+                carArc.SeleccionarArchivo();
                 menu();
                 break;
             case 2:
                 console.clear();
-                let anLex = new AnalizadorLexico();
-                anLex.analizarTexto(texto);
+                
+                if (carArc.getTexto() == undefined) {
+                    console.log('No se a cargado ningun archivo');
+                    console.log();
+                } else {
+                    anLex.analizarTexto(carArc.getTexto());
+                }
+                
                 menu();
                 break;
             case 3:
@@ -69,6 +56,9 @@ function menu() {
         }
     })
 }
+
+let anLex = new AnalizadorLexico();
+let carArc = new CargadorDeArchivos();
 
 console.clear();
 menu();
