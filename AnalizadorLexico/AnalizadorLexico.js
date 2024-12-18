@@ -1,7 +1,11 @@
 const Token = require("../Token/token");
 
 class AnalizadorLexico {
-
+    constructor() {
+        tokens = new Array;
+        errores = new Array;
+    }
+    
     analizarTexto(texto) {
         tokens = new Array;
         errores = new Array;
@@ -52,7 +56,7 @@ class AnalizadorLexico {
                 } else if(esConfiguracion(palabra)) {
                     guardarToken(palabra, 'Configuración');
                 } else {
-                    guardarError(charInicial, 'Palabra no reconocida')
+                    guardarError(palabra, 'Palabra no reconocida')
                 }
                 columna += palabra.length;
 
@@ -76,7 +80,7 @@ class AnalizadorLexico {
 }
 
 const palabrasReservadas = ['"operaciones"','"operacion"','"valor1"','"valor2"','"configuraciones"','"fondo"','"fuente"','"forma"'];
-const operaciones = ['"suma"','"resta"','"multiplicación"','"división"','"potencia"','"raiz"','"inverso"','"seno"','"coseno"','"tangente"','"mod"'];
+const operaciones = ['"suma"','"resta"','"multiplicacion"','"division"','"potencia"','"raiz"','"inverso"','"seno"','"coseno"','"tangente"','"mod"'];
 const configuraciones = ['"red"','"blue"','"yellow"','"white"','"black"','"circle"','"diamond"','"triangle"'];
 
 let tokens;
