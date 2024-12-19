@@ -33,7 +33,14 @@ function menu() {
                     console.log();
                 } else {
                     anLex.analizarTexto(carArc.getTexto());
-                    anMat.AnalizarTexto(carArc.getTexto());
+                    if (anLex.getErrores.length == 0) {
+                        anMat.AnalizarTexto(carArc.getTexto());
+                    } else {
+                        console.log('');
+                        console.log('Se a encontrado algun error lexico');
+                        console.log('por lo que no se puede analizar las operaciones');
+                        console.log('');
+                    }
                 }
                 
                 menu();

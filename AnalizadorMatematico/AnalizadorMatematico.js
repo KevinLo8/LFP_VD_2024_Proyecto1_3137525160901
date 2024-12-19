@@ -103,7 +103,9 @@ function crearOperacion(element) {
             resultado = Math.tan(num1);
             break;
         case "mod":
-            
+            var dif = num1 / num2;
+            dif = Math.floor(dif);
+            resultado = num1 - (num2 * dif);
             break;
     }
 
