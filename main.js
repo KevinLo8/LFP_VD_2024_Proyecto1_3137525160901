@@ -3,6 +3,7 @@ const AnalizadorLexico = require('./AnalizadorLexico/AnalizadorLexico');
 const CargadorDeArchivos = require('./CargadorDeArchivos/cargadorDeArchivos');
 const GeneradorDeHTML = require('./GeneradorDeHTML/GeneradorDeHTML');
 const GeneradorDeJson = require('./GeneradorDeJson/GeneradorDeJson');
+const AnalizadorMatematico = require('./AnalizadorMatematico/AnalizadorMatematico');
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -32,6 +33,7 @@ function menu() {
                     console.log();
                 } else {
                     anLex.analizarTexto(carArc.getTexto());
+                    anMat.AnalizarTexto(carArc.getTexto());
                 }
                 
                 menu();
@@ -89,6 +91,7 @@ function menuReportes() {
 }
 
 let anLex = new AnalizadorLexico();
+let anMat = new AnalizadorMatematico();
 let carArc = new CargadorDeArchivos();
 let genHTML = new GeneradorDeHTML();
 let genJson = new GeneradorDeJson();
