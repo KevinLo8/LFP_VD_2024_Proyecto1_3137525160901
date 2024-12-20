@@ -26,15 +26,15 @@ class AnalizadorMatematico {
     }
 
     getFondo() {
-        return operaciones;
+        return fondo;
     }
 
-    getOperaciones() {
-        return operaciones;
+    getForma() {
+        return forma;
     }
 
-    getOperaciones() {
-        return operaciones;
+    getFuente() {
+        return fuente;
     }
 }
 

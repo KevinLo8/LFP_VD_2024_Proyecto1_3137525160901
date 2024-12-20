@@ -27,9 +27,42 @@
             "valor2": 5.32
         },
         {
+            "operacion": "suma",
+            "valor1": [
+                {
+                    "operacion": "seno",
+                    "valor1": 45
+                }
+            ],
+            "valor2": [
+                {
+                    "operacion": "potencia",
+                    "valor1": 2,
+                    "valor2": 3
+                }
+            ]
+        },
+        {
             "operacion": "multiplicacion",
-            "valor1": 7,
-            "valor2": 3
+            "valor1": 3,
+            "valor2": 7
+        },
+        {
+            "operacion": "multiplicacion",
+            "valor1": 3,
+            "valor2": [
+                {
+                    "operacion": "mod",
+                    "valor1": 100,
+                    "valor2": [
+                        {
+                            "operacion": "division",
+                            "valor1": 15,
+                            "valor2": 3
+                        }
+                    ]
+                }
+            ]
         },
         {
             "operacion": "mod",
@@ -44,9 +77,9 @@
     ],
     "configuraciones": [
         {
-            "fondo": "red",
-            "fuente": "black",
-            "forma": "circle"
+            "fondo": "blue",
+            "fuente": "white",
+            "forma": "diamond"
         }
     ]
 }
