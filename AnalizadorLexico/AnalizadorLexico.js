@@ -67,6 +67,10 @@ class AnalizadorLexico {
             }
 
         } while (espacio < texto.length);
+
+        console.log();
+        console.log('Se a analizado el texto correctamente');
+        console.log();
     }
 
     getTokens() {
@@ -173,13 +177,11 @@ function extraerNumero(texto) {
 }
 
 function guardarToken(palabra, tipo){
-    console.log(`${palabra} -- ${tipo} -- ${fila} -- ${columna}`);
     let token = new Token(palabra, tipo, columna, fila);
     tokens.push(token);
 }
 
 function guardarError(palabra, descripcion){
-    console.log(`${palabra} -- Error Léxico -- ${descripcion} -- ${fila} -- ${columna}`);
     let token = new Token(palabra, descripcion, columna, fila);
     errores.push(token);
 }

@@ -37,7 +37,7 @@ class GeneradorDeJson {
             if (error) {
                 console.log('Error al generar El Reporte Json');
             } else {
-                console.log('Reporte Json generado correctamente');
+                console.log('Archivo de errores generado correctamente');
             }
         })
     }

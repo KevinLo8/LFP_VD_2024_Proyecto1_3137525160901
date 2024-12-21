@@ -12,7 +12,7 @@ class CargadorDeArchivos {
             }
             console.log();
             console.log();
-            console.log('Archivo abierto correctamente');
+            console.log('Archivo leido correctamente');
 
             textoDeArchivo = data;
         })

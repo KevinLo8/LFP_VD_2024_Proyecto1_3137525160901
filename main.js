@@ -5,6 +5,7 @@ const GeneradorDeHTML = require('./GeneradorDeHTML/GeneradorDeHTML');
 const GeneradorDeJson = require('./GeneradorDeJson/GeneradorDeJson');
 const AnalizadorMatematico = require('./AnalizadorMatematico/AnalizadorMatematico');
 const GeneradorDeDiagrama = require('./GeneradorDeDiagrama/GeneradorDeDiagrama');
+const { setTimeout } = require('timers');
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -29,7 +30,8 @@ function menu() {
                 break;
             case 2:
                 console.clear();
-                
+
+
                 if (carArc.getTexto() == undefined) {
                     console.log('No se a cargado ningun archivo');
                     console.log();

@@ -13,8 +13,6 @@ class GeneradorDeDiagrama {
         });
         
         g.output( "png", "diagrama.png" );
-
-        console.log(g.to_dot());
     }
 }
 
